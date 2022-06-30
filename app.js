@@ -7,13 +7,7 @@ const fs = require('fs');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, type: '*/x-www-form-urlencoded'}));
-app.get('/', (req, res) => {
-  knex('user')
-  
-    
-    .then(data => res.status(200).json())
-    .catch(err => {throw Error(err)})
-})
+
 app.use((req, res, next) => {
     res.header({ 'Access-Control-Allow-Origin': 'http://localhost:3000' || "https://z-prefix-u.herokuapp.com/" });
     res.header({
@@ -29,7 +23,13 @@ app.use((req, res, next) => {
 /*********************************************
 *                 Users                     *
 *********************************************/
-
+app.get('/', (req, res) => {
+  knex('user')
+  
+    
+    .then(data => res.status(200).json())
+    .catch(err => {throw Error(err)})
+})
 app.get('/api/users', (req, res) => {
 //knex('user').upsert('password', 1);
 
