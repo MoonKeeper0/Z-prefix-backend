@@ -23,13 +23,7 @@ app.use((req, res, next) => {
 /*********************************************
 *                 Users                     *
 *********************************************/
-app.get('/', (req, res) => {
-  knex('user')
-  
-    
-    .then(data => res.status(200).json())
-    .catch(err => {throw Error(err)})
-})
+
 app.get('/api/users', (req, res) => {
 //knex('user').upsert('password', 1);
 
