@@ -1,5 +1,6 @@
-const server = require('./app');
 require('dotenv').config();
+const server = require('./app');
+
 const port = process.env.PORT || 8081;
 
 
